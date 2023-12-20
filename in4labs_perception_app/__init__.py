@@ -9,14 +9,6 @@ from flask_login import LoginManager, UserMixin, login_required, current_user, l
 
 from .utils import get_usb_config, create_editor, create_navtab
 
-# Test environment variables
-from datetime import datetime, timedelta
-end_time = datetime.now() + timedelta(minutes=15)
-os.environ['USER_EMAIL'] = 'admin@email.com'
-os.environ['USER_ID'] = '1'
-os.environ['END_TIME'] = end_time.strftime('%Y-%m-%dT%H:%M:%S')
-os.environ['CAM_URL'] = 'http://62.204.201.51:8100/Mjpeg/1?authToken=2454ef16-84cf-4184-a748-8bddd993c078'
-
 
 # Flask environment variable needed for session management
 flask_config = {
