@@ -10,7 +10,7 @@ RUN arduino-cli core install arduino:avr
 RUN arduino-cli lib install "LiquidCrystal I2C" 
 RUN arduino-cli lib install "DHT sensor library"
 RUN arduino-cli lib install "MQUnifiedsensor" 
-RUN arduino-cli lib install "Grove - Barometer Sensor BMP280"
+RUN arduino-cli lib install "Grove Barometer Sensor"
 RUN arduino-cli lib install "Accelerometer ADXL335"
 RUN arduino-cli lib install "RTC"
 

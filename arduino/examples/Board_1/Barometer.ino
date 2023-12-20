@@ -2,21 +2,21 @@
   Sketch name: Barometer
   UNED In4Labs - Perception Lab.
 
-  This code demonstrates the usage of the BMP280 barometer sensor with the Seeed Studio library.
+  This code demonstrates the usage of the BMP085 barometer sensor with the Seeed Studio library.
   Temperature and pressure readings are obtained every 2 seconds and displayed on the LCD.
 
-  The BMP280 sensor communicates over the I2C bus.
+  The BMP085 sensor communicates over the I2C bus.
 */
 
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
-#include <Seeed_BMP280.h>
+#include "BMP085.h"
 
 // LCD
 LiquidCrystal_I2C lcd(0x3F,16,2);  // address, columns, rows
 
-// BMP280
-BMP280 bmp280;
+// BMP085
+BMP085 barometer;
 
 void setup() {
   // Init LCD
@@ -24,23 +24,20 @@ void setup() {
   lcd.backlight();
   lcd.clear();
 
-  // Initialize the BMP280 sensor
-  if(!bmp280.init()){
-    lcd.print("BMP280 init fail");
-    while(1);
-  }
+  // Initialize the BMP085 sensor
+  barometer.init();
 }
 
 void loop() {
   // Read temperature and pressure
-  float temp = bmp280.getTemperature();
-  uint32_t pressure = bmp280.getPressure();
+  float temperature = barometer.bmp085GetTemperature(barometer.bmp085ReadUT()); //Get the temperature, bmp085ReadUT MUST be called first
+  float pressure = barometer.bmp085GetPressure(barometer.bmp085ReadUP());      //Get the temperature
 
   // Print temperature and pressure
   lcd.clear();
   lcd.setCursor(0, 0);
   lcd.print("Temp:");
-  lcd.print(temp);
+  lcd.print(temperature);
   lcd.print(" C");
 
   lcd.setCursor(0, 1);
@@ -50,5 +47,5 @@ void loop() {
 
   delay(2000);
 
-  // Exercise: Get the altitude from the pressure reading
+  // Exercise: Get the altitude from the pressure reading and the pressure in Atmosphere with 4 decimal places
 }
