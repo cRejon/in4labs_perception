@@ -137,16 +137,19 @@ def execute():
     return resp
 
 def upload_sketch(board, target):
+    global boards
+    boards = get_usb_driver(boards) # Get the drivers (ttyACM*) of the boards
+    
+    usb_driver = boards[board]['usb_driver']
+    fqbn = boards[board]['fqbn']
+
     if (target == 'user'): 
         input_file = os.path.join(app.instance_path, 'compilations', board, 'build','temp_sketch.ino.hex')
     else: # target == 'stop'
         input_file = os.path.join(app.instance_path, 'compilations', 'precompiled','stop.ino.hex')
 
-    fqbn = boards[board]['fqbn']
-    usb_interface = boards[board]['usb_interface']
-
-    command = ['arduino-cli', 'upload', '--fqbn', fqbn,
-                '--port', f'/dev/{usb_interface}', '--input-file', input_file]
+    command = ['arduino-cli', 'upload', '--port', f'/dev/{usb_driver}',
+                 '--fqbn', fqbn, '--input-file', input_file]
     
     result = subprocess.run(command, capture_output=True, text=True) 
     print(result) # Debug info
