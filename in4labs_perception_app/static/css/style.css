@@ -195,6 +195,13 @@ button[disabled] {
     padding-bottom: 6px;
 }
 
+.nav-link.arduino:before {
+    background: url("../img/arduino_icon.svg") no-repeat scroll center center / 100% auto rgba(0, 0, 0, 0);
+    width: 32px;
+    top: 2px;
+    margin-right: 12px;
+}
+
 .nav-link.sensor:before {
     background: url("../img/sensor_icon.svg") no-repeat scroll center center / 100% auto rgba(0, 0, 0, 0);
     width: 25px;
