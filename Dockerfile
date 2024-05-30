@@ -14,6 +14,8 @@ RUN arduino-cli lib install "Grove Barometer Sensor"
 RUN arduino-cli lib install "Accelerometer ADXL335"
 RUN arduino-cli lib install "RTC"
 RUN arduino-cli lib install "MFRC522"
+RUN arduino-cli lib install "Servo"
+
 
 # Python dependencies are installed here to ensure they will be cached.
 WORKDIR /app
