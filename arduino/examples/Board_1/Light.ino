@@ -2,19 +2,19 @@
   Sketch name: Light
   UNED In4Labs - Perception Lab.
 
-  This code demonstrates reading from a light sensor connected to pin A3.
+  This code demonstrates reading from a light sensor connected to pin A15.
   The sketch checks if the light level crosses a certain threshold and displays 
   "Light Detected" or "No Light" on the LCD.
 
   Circuit:
-    - Light sensor connected to A3.
+    - Light sensor connected to A15.
 */
 
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
-#define LIGHT_SENSOR_PIN A3  // define pin for the light sensor
-#define LIGHT_THRESHOLD 300  // define the threshold for light detection
+#define LIGHT_SENSOR_PIN A15  // define pin for the light sensor
+#define LIGHT_THRESHOLD 500  // define the threshold for light detection
 
 // LCD
 LiquidCrystal_I2C lcd(0x3F,16,2);  // address, columns, rows

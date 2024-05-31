@@ -10,8 +10,7 @@
 LiquidCrystal_I2C lcd(0x3F,16,2);  // address, columns, rows
 
 // Gas sensor
-//const int gasPin = A1;
-const int gasPin = A8;
+const int gasPin = A5;
 
 void setup()
 {

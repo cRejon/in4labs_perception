@@ -6,13 +6,14 @@
   Distance is measured in centimeters and displayed on the LCD.
 
   Circuit:
-    - Ultrasonic sensor's TRIG and ECHO pins connected to digital pin 7.
+    - Ultrasonic sensor's TRIG and ECHO pins connected to digital pins 22 and 23 respectively.
 */
 
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
-#define ULTRASONIC_PIN 7  // define pin for both TRIG and ECHO
+#define TRIG_PIN 22        // define pin for TRIG
+#define ECHO_PIN 23        // define pin for ECHO
 
 // LCD
 LiquidCrystal_I2C lcd(0x3F,16,2);  // address, columns, rows
@@ -23,29 +24,24 @@ void setup() {
   lcd.backlight();
   lcd.clear();
 
-  // Initialize ultrasonic sensor pin
-  pinMode(ULTRASONIC_PIN, OUTPUT);
+  // Initialize ultrasonic sensor pinS
+  pinMode(TRIG_PIN, OUTPUT);
+  pinMode(ECHO_PIN, INPUT);
 }
 
 long measureDistance() {
   // Ensure pin is LOW before the measurement
-  digitalWrite(ULTRASONIC_PIN, LOW);
+  digitalWrite(TRIG_PIN, LOW);
   delayMicroseconds(2);
 
   // Trigger the sensor by setting it HIGH for 10 microseconds
-  digitalWrite(ULTRASONIC_PIN, HIGH);
+  digitalWrite(TRIG_PIN, HIGH);
   //delayMicroseconds(5);
   delayMicroseconds(10);
-  digitalWrite(ULTRASONIC_PIN, LOW);
-
-  // Change the pin to INPUT to receive the echo
-  pinMode(ULTRASONIC_PIN, INPUT);
+  digitalWrite(TRIG_PIN, LOW);
 
   // Measure the length of the echo pulse
-  long duration = pulseIn(ULTRASONIC_PIN, HIGH);
-
-  // Change the pin back to OUTPUT for the next trigger
-  pinMode(ULTRASONIC_PIN, OUTPUT);
+  long duration = pulseIn(ECHO_PIN, HIGH);
 
   // Calculate the distance in centimeters
   // Speed of sound is 340 m/s or 29 microseconds per centimeter and the ping travels out 
@@ -61,7 +57,7 @@ void loop() {
   // Print the distance
   lcd.clear();
   lcd.setCursor(0, 0);
-  lcd.print("Distance:");
+  lcd.print("Distance: ");
   lcd.print(distance);
   lcd.print(" cm");
 

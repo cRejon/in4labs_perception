@@ -2,17 +2,17 @@
   Sketch name: PIR
   UNED In4Labs - Perception Lab.
 
-  This code demonstrates reading from a PIR sensor connected to pin 53.
+  This code demonstrates reading from a PIR sensor connected to pin 4.
   The sketch detects motion and displays "Motion Detected" or "No Motion" on the LCD.
 
   Circuit:
-    - PIR sensor connected to digital pin 53.
+    - PIR sensor connected to digital pin 4.
 */
 
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
-#define PIR_SENSOR_PIN 53  // define pin for the PIR sensor
+#define PIR_SENSOR_PIN 28  // define pin for the PIR sensor
 
 // LCD
 LiquidCrystal_I2C lcd(0x3F,16,2);  // address, columns, rows
@@ -32,7 +32,6 @@ void loop() {
 
   // Print the sensor status
   lcd.clear();
-  lcd.setCursor(0, 0);
   if (sensorValue == HIGH) {
     lcd.print("Motion Detected");
   } else {

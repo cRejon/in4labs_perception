@@ -2,18 +2,18 @@
   Sketch name: Sound Sensor
   UNED In4Labs - Perception Lab.
 
-  This code demonstrates reading from a sound sensor connected to pin A15.
+  This code demonstrates reading from a sound sensor connected to pin A0.
   The sketch checks if the sound level crosses a certain threshold and displays 
   "Sound Detected" or "No Sound" on the LCD.
 
   Circuit:
-    - Sound sensor connected to A15.
+    - Sound sensor connected to A7.
 */
 
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
-#define SOUND_SENSOR_PIN A15  // define pin for the sound sensor
+#define SOUND_SENSOR_PIN A0  // define pin for the sound sensor
 #define SOUND_THRESHOLD 400   // define the threshold for sound detection
 
 // LCD

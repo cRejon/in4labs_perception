@@ -31,17 +31,16 @@ void setup() {
 void loop() {
   // Read temperature and pressure
   float temperature = barometer.bmp085GetTemperature(barometer.bmp085ReadUT()); //Get the temperature, bmp085ReadUT MUST be called first
-  float pressure = barometer.bmp085GetPressure(barometer.bmp085ReadUP());      //Get the temperature
+  float pressure = barometer.bmp085GetPressure(barometer.bmp085ReadUP());      //Get the pressure
 
   // Print temperature and pressure
   lcd.clear();
-  lcd.setCursor(0, 0);
-  lcd.print("Temp:");
+  lcd.print("T:");
   lcd.print(temperature);
   lcd.print(" C");
 
   lcd.setCursor(0, 1);
-  lcd.print("Pres:");
+  lcd.print("P:");
   lcd.print(pressure);
   lcd.print(" Pa");
 
