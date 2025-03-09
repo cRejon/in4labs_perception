@@ -16,14 +16,14 @@
 #include <LiquidCrystal_I2C.h>
 #include "ADXL335.h"
 
-#define X_AXIS_PIN A8  // define pins for the accelerometer axes
+#define X_AXIS_PIN A8  // Define pins for the accelerometer axes
 #define Y_AXIS_PIN A9
 #define Z_AXIS_PIN A10
 
 ADXL335 accelerometer;  // Instantiate the accelerometer
 
 // LCD
-LiquidCrystal_I2C lcd(0x3F,16,2);  // address, columns, rows
+LiquidCrystal_I2C lcd(0x3F, 16, 2);  // address, columns, rows
 
 
 void setup()
@@ -41,7 +41,7 @@ void loop()
 {
   // Calculate
   int x,y,z;
-  accelerometer.getXYZ(&x,&y,&z);
+  accelerometer.getXYZ(&x, &y, &z);
 
   // Print accelerometer values
   lcd.clear();
@@ -56,6 +56,4 @@ void loop()
   lcd.print(z);
 
   delay(1000);
-
-  // Exercise: get acceleration
 }

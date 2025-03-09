@@ -19,15 +19,15 @@
 #include <LiquidCrystal_I2C.h>
 #include "DHT.h"
 
-#define DHT22_PIN 12                 // define the type data pin
-#define DHTType DHT22               // define the DHT sensor (DHT11, DHT21, or DHT22)
+#define DHT22_PIN 12                // Define the type data pin
+#define DHTType DHT22               // Define the DHT sensor (DHT11, DHT21, or DHT22)
 
-DHT dht = DHT(DHT22_PIN, DHTType);    // instantiate the dht class with our data pin and DHT type.
-float temperature;     // make a float to hold data read from the sensor
-float humidity;        // make a float to hold data read from the sensor
+DHT dht = DHT(DHT22_PIN, DHTType);  // Instantiate the dht class with our data pin and DHT type.
+float temperature;                  // Variables to store the temperature and humidity values
+float humidity;        
 
 // LCD
-LiquidCrystal_I2C lcd(0x3F,16,2);  // address, columns, rows
+LiquidCrystal_I2C lcd(0x3F,16,2);   // address, columns, rows
 
 
 void setup()

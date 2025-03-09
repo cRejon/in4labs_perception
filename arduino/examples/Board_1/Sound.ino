@@ -30,7 +30,7 @@ void setup() {
 }
 
 void loop() {
-  int sensorValue = analogRead(SOUND_SENSOR_PIN);  // read the sound sensor
+  int sensorValue = analogRead(SOUND_SENSOR_PIN);  // Read the sound sensor
 
   // Print the sensor status
   lcd.clear();
@@ -42,8 +42,4 @@ void loop() {
   }
 
   delay(1000);  // Delay for 1 second
-
-  // Exercise: Modify the code to sample the sound sensor N_SAMPLES times and
-  //           calculate the average value. Then, compare the average value
-  //           to the threshold.
 }

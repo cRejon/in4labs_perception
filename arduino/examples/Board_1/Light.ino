@@ -14,10 +14,10 @@
 #include <LiquidCrystal_I2C.h>
 
 #define LIGHT_SENSOR_PIN A15  // define pin for the light sensor
-#define LIGHT_THRESHOLD 500  // define the threshold for light detection
+#define LIGHT_THRESHOLD 200  // define the threshold for light detection
 
 // LCD
-LiquidCrystal_I2C lcd(0x3F,16,2);  // address, columns, rows
+LiquidCrystal_I2C lcd(0x3F, 16, 2);  // address, columns, rows
 
 void setup() {
   // Init LCD

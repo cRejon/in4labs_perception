@@ -1,5 +1,5 @@
 /*
-  Sketch name: RTC DS1307 Display with Date
+  Sketch name: RTC
   UNED In4Labs - Perception Lab.
 
   This code demonstrates the usage of a DS1307 RTC module.

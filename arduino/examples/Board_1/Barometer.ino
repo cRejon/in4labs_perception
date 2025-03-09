@@ -13,7 +13,7 @@
 #include "BMP085.h"
 
 // LCD
-LiquidCrystal_I2C lcd(0x3F,16,2);  // address, columns, rows
+LiquidCrystal_I2C lcd(0x3F, 16, 2);  // address, columns, rows
 
 // BMP085
 BMP085 barometer;
@@ -30,8 +30,10 @@ void setup() {
 
 void loop() {
   // Read temperature and pressure
-  float temperature = barometer.bmp085GetTemperature(barometer.bmp085ReadUT()); //Get the temperature, bmp085ReadUT MUST be called first
-  float pressure = barometer.bmp085GetPressure(barometer.bmp085ReadUP());      //Get the pressure
+  // Get the temperature, bmp085ReadUT MUST be called first
+  float temperature = barometer.bmp085GetTemperature(barometer.bmp085ReadUT()); 
+  // Get the pressure
+  float pressure = barometer.bmp085GetPressure(barometer.bmp085ReadUP());      
 
   // Print temperature and pressure
   lcd.clear();
@@ -45,6 +47,4 @@ void loop() {
   lcd.print(" Pa");
 
   delay(2000);
-
-  // Exercise: Get the altitude from the pressure reading and the pressure in Atmosphere with 4 decimal places
 }

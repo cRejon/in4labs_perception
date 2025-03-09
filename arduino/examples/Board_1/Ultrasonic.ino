@@ -1,5 +1,5 @@
 /*
-  Sketch name: Ultrasonic Sensor
+  Sketch name: Ultrasonic
   UNED In4Labs - Perception Lab.
 
   This code demonstrates the usage of an ultrasonic sensor for distance measurement.
@@ -12,11 +12,11 @@
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
-#define TRIG_PIN 22        // define pin for TRIG
-#define ECHO_PIN 23        // define pin for ECHO
+#define TRIG_PIN 22        // Define pin for TRIG
+#define ECHO_PIN 23        // Define pin for ECHO
 
 // LCD
-LiquidCrystal_I2C lcd(0x3F,16,2);  // address, columns, rows
+LiquidCrystal_I2C lcd(0x3F, 16, 2);  // address, columns, rows
 
 void setup() {
   // Init LCD
@@ -36,7 +36,6 @@ long measureDistance() {
 
   // Trigger the sensor by setting it HIGH for 10 microseconds
   digitalWrite(TRIG_PIN, HIGH);
-  //delayMicroseconds(5);
   delayMicroseconds(10);
   digitalWrite(TRIG_PIN, LOW);
 

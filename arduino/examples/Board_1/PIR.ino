@@ -15,7 +15,7 @@
 #define PIR_SENSOR_PIN 28  // define pin for the PIR sensor
 
 // LCD
-LiquidCrystal_I2C lcd(0x3F,16,2);  // address, columns, rows
+LiquidCrystal_I2C lcd(0x3F, 16, 2);  // address, columns, rows
 
 void setup() {
   // Init LCD
@@ -32,6 +32,7 @@ void loop() {
 
   // Print the sensor status
   lcd.clear();
+  lcd.setCursor(0, 0);
   if (sensorValue == HIGH) {
     lcd.print("Motion Detected");
   } else {
