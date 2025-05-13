@@ -26,7 +26,9 @@ class StopContainerTask(threading.Thread):
 
 # Import lab config from Config object
 server_name = Config.labs_config['server_name']
-lab_duration = Config.labs_config['duration']
+mounting = Config.labs_config['mountings'][0]
+lab_duration = mounting['duration'] # in minutes
+cam_url = mounting.get('cam_url', '')
 lab = Config.labs_config['labs'][0]
 lab_name = lab['lab_name']
 lab_port = lab['host_port']
@@ -57,7 +59,7 @@ docker_env = {
     'USER_EMAIL': 'admin@email.com',
     'USER_ID': 1,
     'END_TIME': end_time.strftime('%Y-%m-%dT%H:%M:%S.%fZ'),
-    'CAM_URL': lab.get('cam_url', ''),
+    'CAM_URL': cam_url,
 }
 
 # Run the container
