@@ -23,4 +23,5 @@ class Config(object):
     flask_config = {
         # Use as secret key the user email + the end time of the session 
         'SECRET_KEY': user_email + end_time,
+        'SESSION_COOKIE_NAME': user_email + end_time,
     }
